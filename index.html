@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ASD Tier 0 · Physicochemical Screening</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAFAF7;
+    --panel: #FFFFFF;
+    --ink: #111417;
+    --ink-2: #4A5058;
+    --ink-3: #7B808A;
+    --rule: #E4E1D9;
+    --rule-2: #EFECE4;
+    --accent: #2C6E7A;
+    --accent-soft: #EAF0F1;
+    --low: #276749;
+    --low-soft: #E5EFE8;
+    --undef: #B78015;
+    --undef-soft: #F5EEDA;
+    --high: #B03A2E;
+    --high-soft: #F3E1DE;
+    --serif: 'IBM Plex Serif', ui-serif, Georgia, 'Times New Roman', serif;
+    --sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  header {
+    border-bottom: 1px solid var(--rule);
+    padding: 22px 32px 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    background: var(--panel);
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 6px;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 26px;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .hdr-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+    text-align: right;
+    letter-spacing: 0.04em;
+  }
+  .hdr-meta > div { line-height: 1.4; }
+  .hdr-meta .prov { color: var(--accent); }
+
+  main {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 24px 32px 60px;
+  }
+
+  section { margin-bottom: 22px; }
+  h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 15px;
+    margin: 0 0 12px;
+    letter-spacing: -0.005em;
+  }
+
+  /* Scenarios */
+  .scenarios {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 12px 14px;
+    background: var(--panel);
+    border: 1px solid var(--rule);
+  }
+  .scenarios-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .chip {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 12px;
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.12s ease;
+  }
+  .chip:hover { border-color: var(--accent); color: var(--accent); }
+  .chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  /* Inputs */
+  .inputs {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    padding: 22px 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.4fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .input-group { display: flex; flex-direction: column; gap: 6px; }
+  .input-group > label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 500;
+  }
+  select {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 10px;
+    border: 1px solid var(--rule);
+    background: var(--bg);
+    color: var(--ink);
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%237B808A' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 30px;
+  }
+  select:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+  .loading-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .loading-val {
+    font-family: var(--mono);
+    font-weight: 500;
+    color: var(--ink);
+    font-size: 13px;
+  }
+  input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    background: var(--rule);
+    outline: none;
+    padding: 0;
+    margin: 12px 0 6px;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px; height: 16px;
+    background: var(--accent);
+    cursor: pointer;
+    border: 0;
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 16px; height: 16px;
+    background: var(--accent);
+    cursor: pointer;
+    border: 0;
+  }
+  .range-scale {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-3);
+  }
+  .storage-toggle {
+    display: flex;
+    border: 1px solid var(--rule);
+  }
+  .storage-btn {
+    flex: 1;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 8px 10px;
+    background: var(--bg);
+    border: 0;
+    color: var(--ink-2);
+    cursor: pointer;
+  }
+  .storage-btn + .storage-btn { border-left: 1px solid var(--rule); }
+  .storage-btn.active { background: var(--accent); color: white; }
+  .storage-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  /* Verdict card */
+  .verdict-card {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    padding: 28px 32px;
+    display: grid;
+    grid-template-columns: 1.2fr 2fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .verdict-lights {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .light {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    opacity: 0.32;
+    transition: opacity 0.2s;
+  }
+  .light.active { opacity: 1; }
+  .light .dot {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--ink-3);
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+  }
+  .light[data-key="low"] .dot { background: var(--low); }
+  .light[data-key="undef"] .dot { background: var(--undef); }
+  .light[data-key="high"] .dot { background: var(--high); }
+  .light.active .dot::after {
+    content: '';
+    display: block;
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px currentColor;
+    opacity: 0.15;
+  }
+  .light[data-key="low"].active { color: var(--low); }
+  .light[data-key="undef"].active { color: var(--undef); }
+  .light[data-key="high"].active { color: var(--high); }
+  .light .label {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--ink);
+  }
+  .verdict-summary { border-left: 1px solid var(--rule); padding-left: 40px; }
+  .verdict-context {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 8px;
+  }
+  .verdict-title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 21px;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .verdict-recommendation {
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+
+  /* Axis cards */
+  .axes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .axis-card {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    padding: 20px 22px 18px;
+    position: relative;
+  }
+  .axis-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--ink-3);
+  }
+  .axis-card.risk-low::before { background: var(--low); }
+  .axis-card.risk-med::before { background: var(--undef); }
+  .axis-card.risk-high::before { background: var(--high); }
+  .axis-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .axis-value {
+    font-family: var(--mono);
+    font-weight: 500;
+    color: var(--ink);
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .axis-value .num { font-size: 32px; letter-spacing: -0.01em; }
+  .axis-value .unit { font-size: 12px; color: var(--ink-3); }
+  .axis-status {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 8px;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+  .axis-card.risk-low .axis-status { background: var(--low-soft); color: var(--low); }
+  .axis-card.risk-med .axis-status { background: var(--undef-soft); color: var(--undef); }
+  .axis-card.risk-high .axis-status { background: var(--high-soft); color: var(--high); }
+  .axis-formula {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-2);
+    margin-bottom: 12px;
+    padding: 8px 10px;
+    background: var(--bg);
+    border-left: 2px solid var(--rule);
+  }
+  .axis-legend {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--ink-3);
+    letter-spacing: 0.02em;
+    padding-top: 8px;
+    border-top: 1px dashed var(--rule);
+  }
+  .axis-legend .cur {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* Details */
+  .detail {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 16px;
+  }
+  .detail-block {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    padding: 20px 22px;
+  }
+  .hansen-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+  .hansen-table th {
+    font-weight: 500;
+    text-align: right;
+    padding: 8px 6px;
+    color: var(--ink-3);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hansen-table th:first-child { text-align: left; }
+  .hansen-table td {
+    padding: 9px 6px;
+    text-align: right;
+    color: var(--ink);
+    border-bottom: 1px solid var(--rule-2);
+  }
+  .hansen-table td:first-child {
+    text-align: left;
+    font-family: var(--sans);
+    font-weight: 500;
+  }
+  .hansen-table tr.delta-row td {
+    border-top: 1px solid var(--rule);
+    background: var(--bg);
+    color: var(--ink-2);
+    border-bottom: 0;
+  }
+  .hansen-table tr.delta-row td:first-child { color: var(--ink); }
+  .hansen-note {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--rule);
+  }
+  .hansen-note strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .worked-calc {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    line-height: 1.9;
+    background: var(--bg);
+    border-left: 2px solid var(--rule);
+    padding: 12px 14px;
+  }
+  .worked-calc .calc-line { color: var(--ink-2); }
+  .worked-calc .calc-result {
+    color: var(--ink);
+    font-weight: 500;
+    margin-top: 6px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--rule);
+  }
+  .worked-calc .num { color: var(--accent); }
+
+  /* Chart */
+  .chart-section {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    padding: 20px 22px 18px;
+  }
+  .chart-container {
+    margin: 4px 0 10px;
+  }
+  svg#chart {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .chart-legend {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-2);
+    padding-top: 10px;
+    border-top: 1px dashed var(--rule);
+  }
+  .lg-item { display: flex; align-items: center; gap: 6px; }
+  .lg-sw {
+    display: inline-block;
+    width: 16px; height: 2px;
+    background: var(--ink);
+  }
+  .lg-sw.lg-fox { background: var(--accent); }
+  .lg-sw.lg-safe { background: var(--low); border-top: 1px dashed var(--low); height: 0; border-bottom: 0; }
+  .lg-sw.lg-cur { background: var(--high); }
+  .lg-safe-dash {
+    display: inline-block;
+    width: 16px; height: 0;
+    border-top: 1.5px dashed var(--low);
+  }
+
+  /* Methods */
+  .methods {
+    margin-top: 24px;
+    padding: 22px 26px 24px;
+    background: var(--panel);
+    border: 1px solid var(--rule);
+  }
+  .methods h3 { margin-bottom: 12px; }
+  .methods ol {
+    padding-left: 20px;
+    margin: 0 0 14px;
+    color: var(--ink-2);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .methods ol li { margin-bottom: 8px; }
+  .methods ol strong { color: var(--ink); }
+  .caveat {
+    font-size: 12.5px;
+    color: var(--ink-2);
+    line-height: 1.55;
+    margin: 12px 0 0;
+    padding-top: 12px;
+    border-top: 1px dashed var(--rule);
+  }
+  .caveat strong { color: var(--ink); }
+
+  /* Responsive */
+  @media (max-width: 960px) {
+    .inputs { grid-template-columns: 1fr 1fr; }
+    .verdict-card { grid-template-columns: 1fr; gap: 22px; }
+    .verdict-summary { border-left: 0; border-top: 1px solid var(--rule); padding: 22px 0 0 0; }
+    .axes, .detail { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 620px) {
+    header { flex-direction: column; align-items: flex-start; padding: 18px 20px; }
+    .hdr-meta { text-align: left; }
+    main { padding: 18px 20px 40px; }
+    .inputs { grid-template-columns: 1fr; padding: 18px; }
+    .verdict-card { padding: 22px 20px; }
+    h1 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="eyebrow">Tier 0 · rapid physicochemical descriptor screen</div>
+    <h1>ASD Screening Console</h1>
+  </div>
+  <div class="hdr-meta">
+    <div>Pfizer × IIT Madras</div>
+    <div class="prov">demo build · 32 APIs · 6 polymers</div>
+  </div>
+</header>
+
+<main>
+
+  <!-- Preset scenarios -->
+  <section class="scenarios">
+    <div class="scenarios-label">Try:</div>
+    <button class="chip" data-api="Ritonavir"  data-poly="VA64" data-loading="25" data-storage="25">Ritonavir + VA64 @ 25% · 25°C</button>
+    <button class="chip" data-api="Ritonavir"  data-poly="PVP"  data-loading="25" data-storage="25">Ritonavir + PVP @ 25% · 25°C</button>
+    <button class="chip" data-api="Nabilone"   data-poly="PVP"  data-loading="30" data-storage="25">Nabilone + PVP @ 30% · 25°C</button>
+    <button class="chip" data-api="Etravirine" data-poly="EC"   data-loading="30" data-storage="25">Etravirine + EC @ 30% · 25°C</button>
+    <button class="chip" data-api="Verapamil"  data-poly="VA64" data-loading="60" data-storage="40">Verapamil + VA64 @ 60% · 40°C</button>
+  </section>
+
+  <!-- Input controls -->
+  <section class="inputs">
+    <div class="input-group">
+      <label for="api-select">Active pharmaceutical ingredient</label>
+      <select id="api-select"></select>
+    </div>
+    <div class="input-group">
+      <label for="polymer-select">Polymer carrier</label>
+      <select id="polymer-select"></select>
+    </div>
+    <div class="input-group">
+      <div class="loading-header">
+        <label for="loading-slider">Drug loading</label>
+        <span class="loading-val"><span id="loading-val">25</span> wt%</span>
+      </div>
+      <input type="range" id="loading-slider" min="5" max="60" step="1" value="25" aria-label="Drug loading in weight percent">
+      <div class="range-scale"><span>5%</span><span>30%</span><span>60%</span></div>
+    </div>
+    <div class="input-group">
+      <label>Storage condition</label>
+      <div class="storage-toggle" role="radiogroup" aria-label="Storage condition">
+        <button class="storage-btn active" data-storage="25" role="radio" aria-checked="true">25 °C · 60% RH</button>
+        <button class="storage-btn" data-storage="40" role="radio" aria-checked="false">40 °C · 75% RH</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Verdict card -->
+  <section class="verdict-card">
+    <div class="verdict-lights">
+      <div class="light" data-key="low">
+        <span class="dot"></span>
+        <span class="label">Low risk</span>
+      </div>
+      <div class="light" data-key="undef">
+        <span class="dot"></span>
+        <span class="label">Undefined</span>
+      </div>
+      <div class="light" data-key="high">
+        <span class="dot"></span>
+        <span class="label">High risk</span>
+      </div>
+    </div>
+    <div class="verdict-summary">
+      <div class="verdict-context" id="verdict-context">verdict</div>
+      <div class="verdict-title" id="verdict-title">—</div>
+      <div class="verdict-recommendation" id="verdict-rec">—</div>
+    </div>
+  </section>
+
+  <!-- Two axis cards -->
+  <section class="axes">
+    <div class="axis-card" id="miscibility-card">
+      <div class="axis-title">Miscibility · Hansen distance</div>
+      <div class="axis-value"><span class="num" id="hansen-value">—</span><span class="unit">MPa<sup>½</sup></span></div>
+      <div class="axis-status" id="miscibility-status">—</div>
+      <div class="axis-formula">Δδ = √( Δδ<sub>d</sub>² + Δδ<sub>p</sub>² + Δδ<sub>h</sub>² )</div>
+      <div class="axis-legend" id="miscibility-legend">
+        <span>&lt; 7 miscible</span> &nbsp;·&nbsp;
+        <span>7–10 borderline</span> &nbsp;·&nbsp;
+        <span>&gt; 10 immiscible</span>
+      </div>
+    </div>
+    <div class="axis-card" id="mobility-card">
+      <div class="axis-title">Mobility · T<sub>g</sub> margin at storage</div>
+      <div class="axis-value"><span class="num" id="margin-value">—</span><span class="unit">°C</span></div>
+      <div class="axis-status" id="mobility-status">—</div>
+      <div class="axis-formula">margin = T<sub>g,blend</sub> − T<sub>storage</sub></div>
+      <div class="axis-legend" id="mobility-legend">
+        <span>≥ 50 suppressed</span> &nbsp;·&nbsp;
+        <span>20–50 borderline</span> &nbsp;·&nbsp;
+        <span>&lt; 20 mobile</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed breakdown -->
+  <section class="detail">
+    <div class="detail-block">
+      <h3>Hansen parameters</h3>
+      <table class="hansen-table" id="hansen-table">
+        <thead>
+          <tr>
+            <th>Component</th>
+            <th>δ<sub>d</sub></th>
+            <th>δ<sub>p</sub></th>
+            <th>δ<sub>h</sub></th>
+            <th>δ<sub>tot</sub></th>
+            <th>T<sub>g</sub> (°C)</th>
+          </tr>
+        </thead>
+        <tbody id="hansen-tbody">
+          <tr class="api-row"><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr class="poly-row"><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr class="delta-row"><td>|Δ|</td><td id="ddd">—</td><td id="ddp">—</td><td id="ddh">—</td><td>—</td><td id="ddtg">—</td></tr>
+        </tbody>
+      </table>
+      <div class="hansen-note">
+        First-pass χ ≈ <strong id="chi-value">—</strong> &nbsp;·&nbsp; V<sub>ref</sub> = 100 cm³/mol &nbsp;·&nbsp; T = 298.15 K
+      </div>
+    </div>
+    <div class="detail-block">
+      <h3>Fox blend T<sub>g</sub></h3>
+      <div class="worked-calc" id="fox-calc">
+        <div class="calc-line">1 / T<sub>g,blend</sub> = w<sub>1</sub>/T<sub>g,1</sub> + (1−w<sub>1</sub>)/T<sub>g,2</sub></div>
+        <div class="calc-line" id="fox-sub">select components to compute</div>
+        <div class="calc-result">T<sub>g,blend</sub> = <span class="num" id="tg-blend">—</span> °C</div>
+      </div>
+      <div class="hansen-note">
+        Weight fraction basis · Tg in Kelvin · Storage: <strong id="storage-label">25 °C</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chart -->
+  <section class="chart-section">
+    <h3>T<sub>g,blend</sub> across drug loading</h3>
+    <div class="chart-container">
+      <svg id="chart" viewBox="0 0 620 300" preserveAspectRatio="xMidYMid meet"></svg>
+    </div>
+    <div class="chart-legend">
+      <span class="lg-item"><span class="lg-sw lg-fox"></span> Fox curve</span>
+      <span class="lg-item"><span class="lg-safe-dash"></span> Safety line (T<sub>storage</sub> + 50 °C)</span>
+      <span class="lg-item"><span class="lg-sw lg-cur"></span> Current loading</span>
+    </div>
+  </section>
+
+  <!-- Methodology -->
+  <footer class="methods">
+    <h3>How the verdict is computed</h3>
+    <ol>
+      <li><strong>Miscibility axis (Hansen).</strong> Hansen distance Δδ from partial parameters (δ<sub>d</sub>, δ<sub>p</sub>, δ<sub>h</sub>) of API and polymer. Pharma rule of thumb (Greenhalgh et&nbsp;al. 1999, J. Pharm. Sci.): Δδ &lt; 7 MPa<sup>½</sup> → likely miscible; &gt; 10 → likely immiscible. First-pass χ ≈ V<sub>ref</sub>(Δδ)²/RT is reported as a triage number only.</li>
+      <li><strong>Mobility axis (Fox + Hancock).</strong> Blend T<sub>g</sub> from the Fox equation 1/T<sub>g</sub> = w<sub>1</sub>/T<sub>g,1</sub> + (1−w<sub>1</sub>)/T<sub>g,2</sub> with T<sub>g</sub> in Kelvin. Storage must sit at least 50 °C below blend T<sub>g</sub> (Hancock, Shamblin & Zografi 1995, Pharm. Res.) for molecular motions to be suppressed over pharmaceutical timescales.</li>
+      <li><strong>Verdict.</strong> Low risk = both axes clear. High risk = either axis fails hard. Undefined = borderline on either axis. Tier 0 never issues a final answer on its own — it sets the prior and decides how much Tier-1 all-atom MD sampling the pair warrants.</li>
+    </ol>
+    <p class="caveat"><strong>Known limitations.</strong> Solubility-parameter methods systematically miss acid–base and specific interactions — a green Tier-0 verdict must still be confirmed at Tier 1. The Fox equation assumes ideal mixing of free volumes and ignores moisture-induced T<sub>g</sub> depression (≈ 10 K per 1% w/w water for many APIs); a real deployment should carry a moisture-margin correction at 75% RH.</p>
+  </footer>
+
+</main>
+
+<script>
+// ─── Database (Tier_0_DB.xlsx, embedded) ──────────────────────────────
+const API_DB = [
+  { name: "Nabilone",     dd: 17.5, dp: 3.2,  dh: 4.8,  tg: 62 },
+  { name: "Verapamil",    dd: 18.2, dp: 4.7,  dh: 6.2,  tg: 47 },
+  { name: "Itraconazole", dd: 19.8, dp: 6.2,  dh: 8.7,  tg: 59 },
+  { name: "Tacrolimus",   dd: 18.5, dp: 8.8,  dh: 11.4, tg: 75 },
+  { name: "Ritonavir",    dd: 19.4, dp: 7.3,  dh: 9.8,  tg: 47 },
+  { name: "Lopinavir",    dd: 19.8, dp: 8.0,  dh: 9.5,  tg: 78 },
+  { name: "Etravirine",   dd: 20.2, dp: 10.5, dh: 9.1,  tg: 105 },
+  { name: "Tolvaptan",    dd: 19.0, dp: 7.0,  dh: 8.5,  tg: 88 },
+  { name: "Everolimus",   dd: 18.0, dp: 7.5,  dh: 10.8, tg: 82 },
+  { name: "Vemurafenib",  dd: 20.4, dp: 9.8,  dh: 8.0,  tg: 103 },
+  { name: "Telaprevir",   dd: 18.9, dp: 8.5,  dh: 10.2, tg: 65 },
+  { name: "Ivacaftor",    dd: 19.0, dp: 7.8,  dh: 9.5,  tg: 110 },
+  { name: "Posaconazole", dd: 20.0, dp: 7.5,  dh: 9.5,  tg: 68 },
+  { name: "Suvorexant",   dd: 19.5, dp: 6.8,  dh: 7.0,  tg: 98 },
+  { name: "Sofosbuvir",   dd: 18.6, dp: 10.2, dh: 10.5, tg: 95 },
+  { name: "Ledipasvir",   dd: 19.8, dp: 8.9,  dh: 9.4,  tg: 135 },
+  { name: "Ombitasvir",   dd: 19.2, dp: 9.1,  dh: 10.8, tg: 92 },
+  { name: "Dasabuvir",    dd: 20.1, dp: 8.6,  dh: 8.0,  tg: 116 },
+  { name: "Paritaprevir", dd: 19.5, dp: 10.0, dh: 11.5, tg: 100 },
+  { name: "Velpatasvir",  dd: 20.0, dp: 8.5,  dh: 9.0,  tg: 130 },
+  { name: "Lumacaftor",   dd: 20.5, dp: 8.0,  dh: 10.5, tg: 119 },
+  { name: "Venetoclax",   dd: 19.6, dp: 8.2,  dh: 9.4,  tg: 120 },
+  { name: "Grazoprevir",  dd: 19.8, dp: 9.2,  dh: 11.0, tg: 107 },
+  { name: "Elbasvir",     dd: 20.4, dp: 9.6,  dh: 10.5, tg: 140 },
+  { name: "Pibrentasvir", dd: 19.7, dp: 9.0,  dh: 9.5,  tg: 145 },
+  { name: "Glecaprevir",  dd: 19.4, dp: 10.5, dh: 12.0, tg: 112 },
+  { name: "Voxilaprevir", dd: 19.5, dp: 9.8,  dh: 11.5, tg: 118 },
+  { name: "Apalutamide",  dd: 20.0, dp: 10.0, dh: 9.8,  tg: 115 },
+  { name: "Tezacaftor",   dd: 19.8, dp: 7.0,  dh: 9.8,  tg: 108 },
+  { name: "Encorafenib",  dd: 20.1, dp: 9.0,  dh: 7.8,  tg: 96 },
+  { name: "Elexacaftor",  dd: 19.7, dp: 8.4,  dh: 11.2, tg: 105 },
+  { name: "Tucatinib",    dd: 20.2, dp: 10.2, dh: 10.5, tg: 125 },
+];
+
+const POLYMER_DB = [
+  { name: "PVP",    dd: 21.4, dp: 11.6, dh: 21.6, tg: 160 },
+  { name: "HPC",    dd: 17.5, dp: 10.2, dh: 20.8, tg: 130 },
+  { name: "HPMC",   dd: 18.5, dp: 10.8, dh: 22.0, tg: 168 },
+  { name: "VA64",   dd: 17.0, dp: 8.8,  dh: 11.0, tg: 101 },
+  { name: "HPMCAS", dd: 18.5, dp: 9.1,  dh: 13.5, tg: 119 },
+  { name: "EC",     dd: 17.9, dp: 4.3,  dh: 3.9,  tg: 129 },
+];
+
+// ─── State ────────────────────────────────────────────────────────────
+const state = {
+  api: API_DB.find(x => x.name === "Ritonavir"),
+  polymer: POLYMER_DB.find(x => x.name === "VA64"),
+  loading: 25,
+  storage: 25,
+};
+
+// ─── Formulas ─────────────────────────────────────────────────────────
+function totalDelta(x) {
+  return Math.sqrt(x.dd*x.dd + x.dp*x.dp + x.dh*x.dh);
+}
+function hansenDistance(a, b) {
+  const ddd = a.dd - b.dd, ddp = a.dp - b.dp, ddh = a.dh - b.dh;
+  return Math.sqrt(ddd*ddd + ddp*ddp + ddh*ddh);
+}
+function foxTgC(a, b, w1) {
+  const T1 = a.tg + 273.15;
+  const T2 = b.tg + 273.15;
+  return 1 / (w1/T1 + (1-w1)/T2) - 273.15;
+}
+function firstPassChi(deltaDelta) {
+  // χ ≈ V_ref × (Δδ)² / (RT)  ; V_ref = 100 cm³/mol; R = 8.314 J/(mol·K); T = 298.15 K
+  return (100 * deltaDelta * deltaDelta) / (8.314 * 298.15);
+}
+function classifyMiscibility(dd) {
+  if (dd < 7)   return { level: "low",  label: "Likely miscible" };
+  if (dd <= 10) return { level: "med",  label: "Borderline" };
+  return              { level: "high", label: "Likely immiscible" };
+}
+function classifyMobility(margin) {
+  if (margin >= 50) return { level: "low",  label: "Motions suppressed" };
+  if (margin >= 20) return { level: "med",  label: "Borderline mobility" };
+  return                 { level: "high", label: "Mobile — high risk" };
+}
+function overallVerdict(mis, mob) {
+  if (mis.level === "high" || mob.level === "high") return "high";
+  if (mis.level === "med"  || mob.level === "med")  return "undef";
+  return "low";
+}
+
+// ─── Format helpers ───────────────────────────────────────────────────
+const fmt1 = v => (Number.isFinite(v) ? v.toFixed(1) : "—");
+const fmt2 = v => (Number.isFinite(v) ? v.toFixed(2) : "—");
+const signed = v => (v >= 0 ? "+" : "") + v.toFixed(1);
+
+// ─── DOM refs ─────────────────────────────────────────────────────────
+const $ = id => document.getElementById(id);
+const apiSel = $("api-select");
+const polySel = $("polymer-select");
+const loadingSlider = $("loading-slider");
+const loadingVal = $("loading-val");
+const storageBtns = document.querySelectorAll(".storage-btn");
+const chipButtons = document.querySelectorAll(".chip");
+
+// Populate selects
+API_DB.slice().sort((a,b) => a.name.localeCompare(b.name)).forEach(a => {
+  const opt = document.createElement("option");
+  opt.value = a.name; opt.textContent = a.name;
+  if (state.api && a.name === state.api.name) opt.selected = true;
+  apiSel.appendChild(opt);
+});
+POLYMER_DB.forEach(p => {
+  const opt = document.createElement("option");
+  opt.value = p.name; opt.textContent = p.name;
+  if (state.polymer && p.name === state.polymer.name) opt.selected = true;
+  polySel.appendChild(opt);
+});
+
+// ─── Render ───────────────────────────────────────────────────────────
+function render() {
+  const { api, polymer, loading, storage } = state;
+  if (!api || !polymer) return;
+
+  const w1 = loading / 100;
+  const dd = hansenDistance(api, polymer);
+  const tgBlend = foxTgC(api, polymer, w1);
+  const margin = tgBlend - storage;
+  const chi = firstPassChi(dd);
+  const misci = classifyMiscibility(dd);
+  const mob = classifyMobility(margin);
+  const verdict = overallVerdict(misci, mob);
+
+  // — verdict lights —
+  document.querySelectorAll(".light").forEach(el => el.classList.toggle("active", el.dataset.key === verdict));
+
+  // — verdict card copy —
+  $("verdict-context").textContent = `${api.name} + ${polymer.name} · ${loading} wt% · ${storage} °C`;
+  const titles = { low: "Low risk", undef: "Undefined — escalate", high: "High risk — escalate" };
+  const recs = {
+    low: "Both descriptor axes clear. Proceed to Tier 1 all-atom MD for confirmation with the standard composition series (5, 10, 20, 30, 40, 50, 60 wt%).",
+    undef: `Borderline on ${misci.level === "med" && mob.level === "med" ? "both axes" : (misci.level === "med" ? "the miscibility axis" : "the mobility axis")}. Escalate to Tier 1 with an extended composition series and confirm χ from mixing-energy plus structure-factor routes.`,
+    high: `Fails on ${misci.level === "high" && mob.level === "high" ? "both axes" : (misci.level === "high" ? "the miscibility axis (Δδ well above 10 MPa½)" : "the mobility axis (Tg margin below 20 °C)")}. Tier 1 will very likely confirm phase separation at this loading — consider a different polymer, plasticiser, or lower loading before spending GPU time.`,
+  };
+  $("verdict-title").textContent = titles[verdict];
+  $("verdict-rec").textContent = recs[verdict];
+
+  // — miscibility card —
+  const miscCard = $("miscibility-card");
+  miscCard.classList.remove("risk-low", "risk-med", "risk-high");
+  miscCard.classList.add("risk-" + misci.level);
+  $("hansen-value").textContent = fmt2(dd);
+  $("miscibility-status").textContent = misci.label;
+
+  // — mobility card —
+  const mobCard = $("mobility-card");
+  mobCard.classList.remove("risk-low", "risk-med", "risk-high");
+  mobCard.classList.add("risk-" + mob.level);
+  $("margin-value").textContent = signed(margin);
+  $("mobility-status").textContent = mob.label;
+
+  // — Hansen table —
+  const tbody = $("hansen-tbody");
+  tbody.innerHTML = "";
+  const apiTot = totalDelta(api), polyTot = totalDelta(polymer);
+  tbody.innerHTML = `
+    <tr class="api-row"><td>${api.name}</td><td>${fmt1(api.dd)}</td><td>${fmt1(api.dp)}</td><td>${fmt1(api.dh)}</td><td>${fmt1(apiTot)}</td><td>${api.tg}</td></tr>
+    <tr class="poly-row"><td>${polymer.name}</td><td>${fmt1(polymer.dd)}</td><td>${fmt1(polymer.dp)}</td><td>${fmt1(polymer.dh)}</td><td>${fmt1(polyTot)}</td><td>${polymer.tg}</td></tr>
+    <tr class="delta-row"><td>|Δ|</td><td>${fmt1(Math.abs(api.dd - polymer.dd))}</td><td>${fmt1(Math.abs(api.dp - polymer.dp))}</td><td>${fmt1(Math.abs(api.dh - polymer.dh))}</td><td>${fmt2(dd)}</td><td>${Math.abs(api.tg - polymer.tg)}</td></tr>
+  `;
+  $("chi-value").textContent = fmt2(chi);
+
+  // — Fox worked calc —
+  const T1 = api.tg + 273.15, T2 = polymer.tg + 273.15;
+  const tgBlendK = tgBlend + 273.15;
+  $("fox-sub").innerHTML =
+    `1 / ${tgBlendK.toFixed(1)} = <span class="num">${w1.toFixed(2)}</span>/${T1.toFixed(1)} + <span class="num">${(1-w1).toFixed(2)}</span>/${T2.toFixed(1)}`;
+  $("tg-blend").textContent = fmt1(tgBlend);
+  $("storage-label").textContent = `${storage} °C`;
+
+  // — Chart —
+  renderChart(api, polymer, loading, storage);
+}
+
+// ─── SVG chart ────────────────────────────────────────────────────────
+function renderChart(api, polymer, loading, storage) {
+  const svg = $("chart");
+  const W = 620, H = 300;
+  const pad = { l: 52, r: 20, t: 18, b: 40 };
+  const plotW = W - pad.l - pad.r, plotH = H - pad.t - pad.b;
+
+  // Sweep loading 0..100
+  const pts = [];
+  for (let x = 0; x <= 100; x += 1) {
+    const w1 = x / 100;
+    pts.push({ x, y: foxTgC(api, polymer, w1) });
+  }
+
+  // Y-axis: use min/max of blend Tg plus safety line, padded
+  const safetyLine = storage + 50;
+  const ymin = Math.min(...pts.map(p => p.y), storage) - 10;
+  const ymax = Math.max(...pts.map(p => p.y), safetyLine) + 10;
+
+  const sx = x => pad.l + (x / 100) * plotW;
+  const sy = y => pad.t + plotH - ((y - ymin) / (ymax - ymin)) * plotH;
+
+  // Path
+  const d = pts.map((p, i) => (i === 0 ? "M" : "L") + sx(p.x).toFixed(1) + " " + sy(p.y).toFixed(1)).join(" ");
+
+  // Ticks
+  const xTicks = [0, 20, 40, 60, 80, 100];
+  const yStep = niceStep((ymax - ymin) / 5);
+  const yTicks = [];
+  const y0 = Math.ceil(ymin / yStep) * yStep;
+  for (let y = y0; y <= ymax; y += yStep) yTicks.push(y);
+
+  // Current-loading marker
+  const curW1 = loading / 100;
+  const curTg = foxTgC(api, polymer, curW1);
+  const cx = sx(loading), cy = sy(curTg);
+
+  // Storage & safety refs
+  const yStorage = sy(storage);
+  const ySafety = sy(safetyLine);
+
+  // Build SVG
+  const ink = "#111417", grid = "#EFECE4", ink3 = "#7B808A";
+  const accent = "#2C6E7A", low = "#276749", high = "#B03A2E";
+
+  const gridLines = yTicks.map(y => `<line x1="${pad.l}" x2="${W-pad.r}" y1="${sy(y).toFixed(1)}" y2="${sy(y).toFixed(1)}" stroke="${grid}" stroke-width="1"/>`).join("");
+  const xTickMarks = xTicks.map(x => `
+    <line x1="${sx(x).toFixed(1)}" x2="${sx(x).toFixed(1)}" y1="${pad.t + plotH}" y2="${pad.t + plotH + 4}" stroke="${ink3}" stroke-width="1"/>
+    <text x="${sx(x).toFixed(1)}" y="${pad.t + plotH + 18}" font-family="IBM Plex Mono, monospace" font-size="10" fill="${ink3}" text-anchor="middle">${x}</text>
+  `).join("");
+  const yTickMarks = yTicks.map(y => `
+    <text x="${pad.l - 8}" y="${sy(y).toFixed(1) + 3}" font-family="IBM Plex Mono, monospace" font-size="10" fill="${ink3}" text-anchor="end">${y.toFixed(0)}</text>
+  `).join("");
+
+  svg.innerHTML = `
+    <!-- axes frame -->
+    <rect x="${pad.l}" y="${pad.t}" width="${plotW}" height="${plotH}" fill="none" stroke="${ink}" stroke-width="1"/>
+    ${gridLines}
+
+    <!-- Safety line: storage + 50°C -->
+    <line x1="${pad.l}" x2="${W-pad.r}" y1="${ySafety.toFixed(1)}" y2="${ySafety.toFixed(1)}" stroke="${low}" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <text x="${W-pad.r - 4}" y="${ySafety - 6}" font-family="IBM Plex Mono, monospace" font-size="10" fill="${low}" text-anchor="end">T_storage + 50°C = ${safetyLine}°C</text>
+
+    <!-- Storage line -->
+    <line x1="${pad.l}" x2="${W-pad.r}" y1="${yStorage.toFixed(1)}" y2="${yStorage.toFixed(1)}" stroke="${ink3}" stroke-width="1" stroke-dasharray="2,3" opacity="0.6"/>
+    <text x="${W-pad.r - 4}" y="${yStorage - 4}" font-family="IBM Plex Mono, monospace" font-size="10" fill="${ink3}" text-anchor="end">T_storage = ${storage}°C</text>
+
+    <!-- Fox curve -->
+    <path d="${d}" fill="none" stroke="${accent}" stroke-width="2"/>
+
+    <!-- Current-loading marker -->
+    <line x1="${cx.toFixed(1)}" x2="${cx.toFixed(1)}" y1="${pad.t}" y2="${pad.t + plotH}" stroke="${high}" stroke-width="1" stroke-dasharray="3,3"/>
+    <circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="4.5" fill="${high}" stroke="white" stroke-width="2"/>
+    <text x="${cx + 8}" y="${cy - 8}" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="${high}" font-weight="600">${loading}%, ${curTg.toFixed(1)}°C</text>
+
+    <!-- Endpoint labels -->
+    <text x="${sx(0) - 4}" y="${sy(pts[0].y) + 3}" font-family="IBM Plex Mono, monospace" font-size="10" fill="${ink3}" text-anchor="end"></text>
+    <text x="${sx(100) + 4}" y="${sy(pts[100].y) + 3}" font-family="IBM Plex Mono, monospace" font-size="10" fill="${ink3}"></text>
+
+    <!-- ticks -->
+    ${xTickMarks}
+    ${yTickMarks}
+
+    <!-- axis labels -->
+    <text x="${pad.l + plotW/2}" y="${H - 6}" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="${ink}" text-anchor="middle" letter-spacing="0.06em">DRUG LOADING (wt%)</text>
+    <text x="14" y="${pad.t + plotH/2}" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="${ink}" text-anchor="middle" transform="rotate(-90, 14, ${pad.t + plotH/2})" letter-spacing="0.06em">Tg,blend (°C)</text>
+
+    <!-- component endpoints -->
+    <text x="${sx(0)}" y="${pad.t - 6}" font-family="IBM Plex Mono, monospace" font-size="10" fill="${ink3}" text-anchor="middle">100% ${polymer.name}</text>
+    <text x="${sx(100)}" y="${pad.t - 6}" font-family="IBM Plex Mono, monospace" font-size="10" fill="${ink3}" text-anchor="middle">100% ${api.name}</text>
+  `;
+}
+
+function niceStep(raw) {
+  const pow = Math.pow(10, Math.floor(Math.log10(raw)));
+  const n = raw / pow;
+  if (n < 1.5) return 1 * pow;
+  if (n < 3)   return 2 * pow;
+  if (n < 7)   return 5 * pow;
+  return 10 * pow;
+}
+
+// ─── Event wiring ─────────────────────────────────────────────────────
+apiSel.addEventListener("change", e => {
+  state.api = API_DB.find(x => x.name === e.target.value);
+  render();
+});
+polySel.addEventListener("change", e => {
+  state.polymer = POLYMER_DB.find(x => x.name === e.target.value);
+  render();
+});
+loadingSlider.addEventListener("input", e => {
+  state.loading = parseInt(e.target.value, 10);
+  loadingVal.textContent = state.loading;
+  render();
+});
+storageBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    storageBtns.forEach(b => { b.classList.remove("active"); b.setAttribute("aria-checked", "false"); });
+    btn.classList.add("active"); btn.setAttribute("aria-checked", "true");
+    state.storage = parseInt(btn.dataset.storage, 10);
+    render();
+  });
+});
+chipButtons.forEach(chip => {
+  chip.addEventListener("click", () => {
+    const apiName = chip.dataset.api, polyName = chip.dataset.poly;
+    const loading = parseInt(chip.dataset.loading, 10);
+    const storage = parseInt(chip.dataset.storage, 10);
+    state.api = API_DB.find(x => x.name === apiName);
+    state.polymer = POLYMER_DB.find(x => x.name === polyName);
+    state.loading = loading;
+    state.storage = storage;
+    apiSel.value = apiName;
+    polySel.value = polyName;
+    loadingSlider.value = loading;
+    loadingVal.textContent = loading;
+    storageBtns.forEach(b => {
+      const active = parseInt(b.dataset.storage, 10) === storage;
+      b.classList.toggle("active", active);
+      b.setAttribute("aria-checked", active ? "true" : "false");
+    });
+    render();
+  });
+});
+
+// ─── Initial render ──────────────────────────────────────────────────
+render();
+</script>
+
+</body>
+</html>

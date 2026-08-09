@@ -747,7 +747,7 @@ function totalDelta(x) {
 }
 function hansenDistance(a, b) {
   const ddd = a.dd - b.dd, ddp = a.dp - b.dp, ddh = a.dh - b.dh;
-  return Math.sqrt(ddd*ddd + ddp*ddp + ddh*ddh);
+  return Math.sqrt(4 * ddd*ddd + ddp*ddp + ddh*ddh);
 }
 function foxTgC(a, b, w1) {
   const T1 = a.tg + 273.15;
